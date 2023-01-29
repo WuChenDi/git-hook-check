@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 
-// TODO
-debugger
+// TODO test
+// TODO test
+// TODO test
 console.log(123)
 </script>
 
