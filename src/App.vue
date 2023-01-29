@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 // TODO
+// debugger
 console.log(123)
 </script>
 
