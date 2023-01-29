@@ -6,6 +6,7 @@ import HelloWorld from './components/HelloWorld.vue'
 // TODO test
 debugger
 debugger
+
 console.log(123)
 </script>
 
