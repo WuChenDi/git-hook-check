@@ -1,0 +1,28 @@
+{
+  "name": "git-hook-check",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "check-keyword": "bash script/check-keyword.sh",
+    "check-commit": "npm run check-keyword",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "husky": "^8.0.3",
+    "pre-commit": "^1.2.2",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vue-tsc": "^1.0.11"
+  },
+  "pre-commit": [
+    "check-commit"
+  ]
+}
