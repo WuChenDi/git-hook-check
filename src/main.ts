@@ -3,6 +3,6 @@ import './style.css'
 import App from './App.vue'
 
 // TODO test
-// debugger
-// console.log('测试')
+// debugger 1
+// console.log('测试 1')
 createApp(App).mount('#app')
