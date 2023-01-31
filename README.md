@@ -19,13 +19,16 @@ Use git hook to block keywords for files in the staging area. [Link](./script/ch
 #!/bin/bash
 
 # Set the filter keywords (support Chinese)
-FILTER_WORDS="测试 debugger"
+FILTER_WORDS="debugger 测试"
 
 # Set the directories or file paths that don't need to be checked
-IGNORE_PATHS=".git node_modules script src/App.vue"
+IGNORE_PATHS=".git node_modules script src/App.vue README.md README-zh_CN.md"
 
 # Get the list of files in the cache area
 FILES=$(git diff --name-only --cached)
+
+# Define if error flags are found
+has_error=false
 
 # Loop through the file list
 for FILE in $FILES; do
@@ -45,10 +48,15 @@ for FILE in $FILES; do
   for FILTER_WORD in $FILTER_WORDS; do
     if grep -Eiq "$FILTER_WORD" "$FILE"; then
       echo -e "\033[31m[Warning]\033[0m Keyword \033[31m$FILTER_WORD\033[0m found in file $FILE"
-      exit 1
+      has_error=true
     fi
   done
 done
+
+# If an error is found, exit
+if $has_error; then
+  exit 1
+fi
 
 echo -e "\033[32m[Info]\033[0m No filtered keywords found"
 exit 0
