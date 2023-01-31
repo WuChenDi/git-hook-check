@@ -2,8 +2,8 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 // TODO test
-// debugge1r
-// console.log('微1盛')
+// debugger
+console.log('测试')
 </script>
 
 <template>
