@@ -24,5 +24,13 @@
   },
   "pre-commit": [
     "check-commit"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "pre-commit"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "pre-commit"
+  }
 }

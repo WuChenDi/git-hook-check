@@ -3,12 +3,13 @@ import HelloWorld from './components/HelloWorld.vue'
 
 // TODO test
 debugger
-console.log(微盛)
+console.log('微盛')
+console.log('微盛')
 </script>
 
 <template>
   <div>
-    微盛
+    微盛微盛
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
