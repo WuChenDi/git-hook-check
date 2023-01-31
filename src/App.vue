@@ -4,7 +4,6 @@ import HelloWorld from './components/HelloWorld.vue'
 // TODO test
 debugger
 console.log('微盛')
-console.log('微盛')
 </script>
 
 <template>
