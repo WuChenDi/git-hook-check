@@ -102,7 +102,7 @@
 
 # Case 6
 # 设置需要过滤的关键字
-FILTER_WORDS="console debugger TODO"
+FILTER_WORDS="微盛 debugger"
 
 # 设置不需要检测的目录或文件路径
 IGNORE_PATHS=".git node_modules dist script"

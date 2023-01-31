@@ -3,6 +3,6 @@ import './style.css'
 import App from './App.vue'
 
 // TODO test
-debugger
-console.log('微盛')
+// debugge1r
+// console.log('微1盛')
 createApp(App).mount('#app')
