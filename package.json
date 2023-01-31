@@ -26,6 +26,9 @@
   "pre-commit": [
     "check-commit"
   ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
