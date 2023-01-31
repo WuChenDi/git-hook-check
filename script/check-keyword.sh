@@ -10,7 +10,7 @@
 FILTER_WORDS="测试 debugger"
 
 # 设置不需要检测的目录或文件路径
-IGNORE_PATHS=".git node_modules script src/App.vue"
+IGNORE_PATHS=".git node_modules script src/App.vue README.md"
 
 # 获取暂存区中的文件列表
 FILES=$(git diff --name-only --cached)
