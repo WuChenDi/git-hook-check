@@ -68,34 +68,66 @@
 # echo "提交的文件中没有关键字，可以安全提交"
 # exit 0
 
+# # 设置不需要过滤的目录
+# excluded_dirs=(
+#   "node_modules"
+#   "dist"
+# )
 
-# 设置不需要过滤的目录
-excluded_dirs=(
-  "node_modules"
-  "dist"
-)
+# # 获取所有已缓存的改动文件
+# cached_files=$(git diff --name-only --cached)
 
-# 获取所有已缓存的改动文件
-cached_files=$(git diff --name-only --cached)
+# # 对每个已缓存的改动文件进行遍历
+# for file in $cached_files; do
 
-# 对每个已缓存的改动文件进行遍历
-for file in $cached_files; do
+#   # 跳过不需要过滤的目录
+#   skip=false
+#   for dir in "${excluded_dirs[@]}"; do
+#     if [[ $file == *"/$dir/"* ]]; then
+#       skip=true
+#       break
+#     fi
+#   done
+#   if $skip; then
+#     continue
+#   fi
 
-  # 跳过不需要过滤的目录
-  skip=false
-  for dir in "${excluded_dirs[@]}"; do
-    if [[ $file == *"/$dir/"* ]]; then
-      skip=true
-      break
+#   # 读取文件中的内容，并且搜索 "console debugger TODO" 关键字
+#   content=$(cat $file)
+#   if [[ $content == *"console"* ]] || [[ $content == *"debugger"* ]] || [[ $content == *"TODO"* ]]; then
+#     echo "Found 'console debugger TODO' keywords in file $file"
+#   fi
+# done
+
+EXCLUDE_DIRS=("node_modules" "dist")
+
+# Function to check if a file should be excluded
+# based on the list of excluded directories
+should_exclude() {
+  file_path=$1
+  for dir in "${EXCLUDE_DIRS[@]}"; do
+    if [[ $file_path == *"/$dir/"* ]]; then
+      return 0
     fi
   done
-  if $skip; then
+  return 1
+}
+
+# Get a list of all modified files in the current Git index
+files=$(git diff --name-only --cached)
+
+# Check each file for "console", "debugger", "TODO"
+for file in $files; do
+  # Skip excluded directories
+  if ! should_exclude $file; then
     continue
   fi
 
-  # 读取文件中的内容，并且搜索 "console debugger TODO" 关键字
-  content=$(cat $file)
-  if [[ $content == *"console"* ]] || [[ $content == *"debugger"* ]] || [[ $content == *"TODO"* ]]; then
-    echo "Found 'console debugger TODO' keywords in file $file"
+  # Check for keywords
+  if grep -Eq 'console|debugger|TODO' "$file"; then
+    echo "Found keywords in file: $file"
+    exit 1
   fi
 done
+
+echo "No keywords found"
