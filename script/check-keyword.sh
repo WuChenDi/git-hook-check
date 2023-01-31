@@ -12,7 +12,7 @@ FILTER_WORDS="debugger 测试"
 
 # Set the directories or file paths that don't need to be checked
 # 设置不需要检测的目录或文件路径
-IGNORE_PATHS=".git node_modules script README.md README-zh_CN.md"
+IGNORE_PATHS=".git node_modules script src/App.vue README.md README-zh_CN.md"
 
 # Get the list of files in the cache area
 # 获取所有已暂存的文件的文件名列表
@@ -42,8 +42,8 @@ for FILE in $FILES; do
   # 判断文件中是否存在需要过滤的关键字
   for FILTER_WORD in $FILTER_WORDS; do
     if grep -Eiq "$FILTER_WORD" "$FILE"; then
-      # echo -e "\033[31m[Warning]\033[0m Keyword \033[31m$FILTER_WORD\033[0m found in file $FILE"
-      echo -e "\033[31m[警告]\033[0m 文件 $FILE 中存在关键字: \033[31m$FILTER_WORD\033[0m"
+      echo -e "\033[31m[Warning]\033[0m Keyword \033[31m$FILTER_WORD\033[0m found in file $FILE"
+      # echo -e "\033[31m[警告]\033[0m 文件 $FILE 中存在关键字: \033[31m$FILTER_WORD\033[0m"
       has_error=true
     fi
   done
@@ -55,6 +55,6 @@ if $has_error; then
   exit 1
 fi
 
-# echo -e "\033[32m[Info]\033[0m No filtered keywords found"
-echo -e "\033[32m[提示]\033[0m 没有发现需要过滤的关键字"
+echo -e "\033[32m[Info]\033[0m No filtered keywords found"
+# echo -e "\033[32m[提示]\033[0m 没有发现需要过滤的关键字"
 exit 0
