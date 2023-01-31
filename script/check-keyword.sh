@@ -15,28 +15,43 @@ IGNORE_PATHS=".git node_modules script src/App.vue README.md README-zh_CN.md"
 # 获取暂存区中的文件列表
 FILES=$(git diff --name-only --cached)
 
-# 循环遍历文件列表
-for FILE in $FILES; do
-  # 判断文件是否在不需要检测的目录或文件路径中
-  IGNORE=false
-  for IGNORE_PATH in $IGNORE_PATHS; do
-    if [[ $FILE == *"$IGNORE_PATH"* ]]; then
-      IGNORE=true
+# 定义不需要检测的目录或文件路径
+exclude_paths=(
+  "node_modules/"
+  "script/"
+  "src/App.vue"
+  "README.md"
+  "README-zh_CN.md"
+)
+
+# 获取所有已暂存的文件的文件名列表
+files=$(git diff --name-only --cached)
+
+# 定义是否发现错误标志
+has_error=false
+
+# 遍历所有文件
+for file in $files; do
+  # 判断文件是否在排除路径中
+  is_excluded=false
+  for exclude_path in "${exclude_paths[@]}"; do
+    if [[ $file == *"$exclude_path"* ]]; then
+      is_excluded=true
       break
     fi
   done
-  if $IGNORE; then
-    continue
-  fi
 
-  # Check if the file contains the filter keywords
-  for FILTER_WORD in $FILTER_WORDS; do
-    if grep -Eiq "$FILTER_WORD" "$FILE"; then
-      echo -e "\033[31m[Warning]\033[0m Keyword \033[31m$FILTER_WORD\033[0m found in file $FILE"
-      exit 1
+  # 如果文件不在排除路径中，检查是否包含 "console debugger TODO" 关键字
+  if ! $is_excluded; then
+    if grep -q "console debugger TODO" $file; then
+      echo -e "\033[1;31mFound 'console debugger TODO' in file: $file\033[0m"
+      has_error=true
     fi
-  done
+  fi
 done
 
-echo -e "\033[32m[Info]\033[0m No filtered keywords found"
-exit 0
+# 如果发现错误，退出并返回非零值
+if $has_error; then
+  echo -e "\033[1;31mError: Found 'console debugger TODO' in some files.\033[0m"
+  exit 1
+fi
