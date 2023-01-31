@@ -60,6 +60,10 @@ exit 0
 
 ## 执行效果
 
+### fail
+
 ![fail](./screenshots/fail.png)
+
+### succeed
 
 ![succeed](./screenshots/succeed.png)
