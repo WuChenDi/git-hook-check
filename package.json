@@ -29,14 +29,10 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
-      "npm run check-commit"
+      "npm run check-commit",
+      "git add"
     ]
   }
 }
