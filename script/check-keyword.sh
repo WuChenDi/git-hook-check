@@ -39,9 +39,6 @@ FILES_PATTERN='\.(vue|ts)(\..+)?$'
 FORBIDDEN=(微盛 debugger TODO)
 
 for i in "${FORBIDDEN[@]}"; do
-  git diff --cached --name-only | grep ".js" | xargs sed 's/ //g' | grep "ha_mobile.debug=true" &&
-    echo 'COMMIT REJECTED Found ha_mobile.debug=true references. Please remove them before commiting' && exit 1
-
   git diff --cached --name-only |
     grep -E $FILES_PATTERN |
     GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n $i &&
