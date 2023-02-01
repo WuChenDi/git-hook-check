@@ -4,6 +4,8 @@
 
 使用 git hook 对暂存区中的文件进行关键字拦截 [Link](./script/check-keyword.sh)
 
+tips: 目录检索过滤, `FILES=$(find src -type f)` [Link](./script/file-check-keyword.sh)
+
 ## ✨ TODO
 
 - [x] 🔨 设置需要过滤的关键字
