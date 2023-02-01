@@ -8,6 +8,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "check-keyword": "bash script/check-keyword.sh",
+    "file-check-keyword": "bash script/check-keyword.sh",
     "check-commit": "npm run check-keyword",
     "prepare": "husky install"
   },
