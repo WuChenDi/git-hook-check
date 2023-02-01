@@ -77,4 +77,10 @@ exit 0
 
 ## 🎈 License
 
-[![GitHub license](https://img.shields.io/github/license/HJFront/gotabit-sdk-vue)](https://github.com/HJFront/gotabit-sdk-vue/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/WuChenDi/git-hook-check)](https://github.com/WuChenDi/git-hook-check/blob/master/LICENSE)
+
+<!-- npx husky add .husky/pre-commit "npm run check-commit"
+https://juejin.cn/post/6908534290179424263
+https://stackoverflow.com/questions/13877469/how-to-disable-git-push-when-there-are-todos-in-code
+https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks#Client-Side-Hooks
+http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes -->

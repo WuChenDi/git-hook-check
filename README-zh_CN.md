@@ -77,4 +77,4 @@ exit 0
 
 ## 🎈 License
 
-[![GitHub license](https://img.shields.io/github/license/HJFront/gotabit-sdk-vue)](https://github.com/HJFront/gotabit-sdk-vue/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/WuChenDi/git-hook-check)](https://github.com/WuChenDi/git-hook-check/blob/master/LICENSE)
