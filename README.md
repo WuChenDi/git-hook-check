@@ -2,9 +2,8 @@
 
 English | [简体中文](./README-zh_CN.md)
 
-Use git hook to block keywords for files in the staging area. [Link](./script/check-keyword.sh)
-
-tips: directory search filtering. [Link](./script/file-check-keyword.sh)
+- Use git hook to block keywords for files in the staging area. [Link](./script/check-keyword.sh)
+- Keyword blocking for configuration directory files. [Link](./script/file-check-keyword.sh)
 
 ## ✨ TODO
 

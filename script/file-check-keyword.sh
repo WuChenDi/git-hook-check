@@ -1,7 +1,7 @@
-# Pre commit hooks to keyword intercept the list of files in the staging area
+# Keyword blocking for configuration directory files
 # Add unwanted code to FILTER_WORDS if necessary
 
-# 预先提交钩子，对暂存区中的文件列表进行关键字拦截
+# 对配置目录文件进行关键字拦截
 # 必要时将不需要的代码添加到 FILTER_WORDS 中
 
 #!/bin/bash

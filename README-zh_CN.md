@@ -2,9 +2,8 @@
 
 简体中文 | [English](./README.md)
 
-使用 git hook 对暂存区中的文件进行关键字拦截 [Link](./script/check-keyword.sh)
-
-tips: 目录检索过滤 [Link](./script/file-check-keyword.sh)
+- 使用 git hook 对暂存区中的文件进行关键字拦截 [Link](./script/check-keyword.sh)
+- 对配置目录文件进行关键字拦截 [Link](./script/file-check-keyword.sh)
 
 ## ✨ TODO
 
